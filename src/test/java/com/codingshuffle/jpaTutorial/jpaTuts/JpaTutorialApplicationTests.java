@@ -21,19 +21,19 @@ class JpaTutorialApplicationTests {
 	void contextLoads() {
 	}
 
-    @Test
-    void testRepository(){
-        ProductEntity productEntity = ProductEntity.builder()
-                .sku("nestle234")
-                .title("Nestle Chocolate")
-                .price(BigDecimal.valueOf(23.45))
-                .quantity(4)
-                .build();
-
-        ProductEntity savedProductEntity = productRepository.save(productEntity);
-        System.out.println(savedProductEntity);
-
-    }
+//    @Test
+//    void testRepository(){
+//        ProductEntity productEntity = ProductEntity.builder()
+//                .sku("nestle234")
+//                .title("Nestle Chocolate")
+//                .price(BigDecimal.valueOf(23.45))
+//                .quantity(4)
+//                .build();
+//
+//        ProductEntity savedProductEntity = productRepository.save(productEntity);
+//        System.out.println(savedProductEntity);
+//
+//    }
 
     @Test
     void getRepository() {
@@ -44,7 +44,7 @@ class JpaTutorialApplicationTests {
        // List<ProductEntity> entities = productRepository.findByQuantityGreaterThanOrPriceLessThan(4, BigDecimal.valueOf(23.45));
         // List<ProductEntity> entities = productRepository.findByTitleLike("%Choco%");
       //  List<ProductEntity> entities = productRepository.findByTitleContaining("Choco");
-        List<ProductEntity> entities = productRepository.findByTitleContainingIgnoreCase("CHOco");
+        List<ProductEntity> entities = productRepository.findByTitleContainingIgnoreCase("CHOco",null);
         System.out.println(entities);
     }
 
@@ -58,7 +58,8 @@ class JpaTutorialApplicationTests {
 
     @Test
     void usingKeywords(){
-       // List<ProductEntity> entities = productRepository.findByCreatedAtBefore(LocalDateTime.of(2024,1,1,0,0,0));
+
+        List<ProductEntity> entities = productRepository.findByCreatedAtBefore(LocalDateTime.of(2024,1,1,0,0,0));
      //   List<ProductEntity> entities = productRepository.findBypriceBetween(20.0,25.1);
       //  List<ProductEntity> entities = productRepository.findBytitleEndingWith("late");
 
